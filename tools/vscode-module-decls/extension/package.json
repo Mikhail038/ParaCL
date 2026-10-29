@@ -1,0 +1,18 @@
+{
+  "name": "cpp-module-decls",
+  "displayName": "C++ module declarations (local)",
+  "description": "Highlights `import X;`, `module X:part;` and module names, which the built-in C++ grammar leaves uncoloured.",
+  "publisher": "local",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.60.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "grammars": [
+      {
+        "scopeName": "source.cpp.module-decls.injection",
+        "path": "./syntaxes/module-decls.injection.json",
+        "injectTo": ["source.cpp"]
+      }
+    ]
+  }
+}

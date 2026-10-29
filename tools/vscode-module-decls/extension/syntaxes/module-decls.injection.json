@@ -1,0 +1,40 @@
+{
+  "scopeName": "source.cpp.module-decls.injection",
+  "injectionSelector": "L:source.cpp -comment -string",
+  "patterns": [
+    {
+      "comment": "module : private;",
+      "match": "^\\s*(module)\\s*(:)\\s*(private)\\s*(;)",
+      "captures": {
+        "1": { "name": "keyword.other.module.cpp" },
+        "2": { "name": "punctuation.separator.colon.cpp" },
+        "3": { "name": "keyword.other.private.cpp" },
+        "4": { "name": "punctuation.terminator.statement.cpp" }
+      }
+    },
+    {
+      "comment": "[export] import name; / [export] import :part;  (header units <...> are left to the built-in grammar)",
+      "match": "^\\s*(?:(export)\\s+)?(import)\\s+(?![<\"])([A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*)?(?:\\s*(:)\\s*([A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*))?\\s*(;)",
+      "captures": {
+        "1": { "name": "keyword.other.export.cpp" },
+        "2": { "name": "keyword.other.import.cpp" },
+        "3": { "name": "entity.name.namespace.module.cpp" },
+        "4": { "name": "punctuation.separator.colon.cpp" },
+        "5": { "name": "entity.name.namespace.module.partition.cpp" },
+        "6": { "name": "punctuation.terminator.statement.cpp" }
+      }
+    },
+    {
+      "comment": "module; / [export] module name[:part];",
+      "match": "^\\s*(?:(export)\\s+)?(module)\\s*([A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*)?(?:\\s*(:)\\s*([A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*))?\\s*(;)",
+      "captures": {
+        "1": { "name": "keyword.other.export.cpp" },
+        "2": { "name": "keyword.other.module.cpp" },
+        "3": { "name": "entity.name.namespace.module.cpp" },
+        "4": { "name": "punctuation.separator.colon.cpp" },
+        "5": { "name": "entity.name.namespace.module.partition.cpp" },
+        "6": { "name": "punctuation.terminator.statement.cpp" }
+      }
+    }
+  ]
+}
